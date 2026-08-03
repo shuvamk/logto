@@ -5,11 +5,10 @@ import useSWR from 'swr';
 
 import { defaultPageSize } from '@/consts';
 import { type RequestError } from '@/hooks/use-api';
+import useDynamicApp from '@/hooks/use-dynamic-app';
 import useSearchParametersWatcher from '@/hooks/use-search-parameters-watcher';
 import { dynamicAppRow, type ApplicationListRow } from '@/types/applications';
 import { buildUrl } from '@/utils/url';
-
-import useDynamicApp from './use-dynamic-app';
 
 const pageSize = defaultPageSize;
 const applicationsEndpoint = 'api/applications';
