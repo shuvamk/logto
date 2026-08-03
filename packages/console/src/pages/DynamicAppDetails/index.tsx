@@ -22,6 +22,7 @@ import { applicationTypeI18nKey, dynamicAppId } from '@/types/applications';
 
 import DisableDynamicAppModal from './DisableDynamicAppModal';
 import EndpointsAndCredentials from './EndpointsAndCredentials';
+import Permissions from './Permissions';
 import Settings from './Settings';
 import styles from './index.module.scss';
 
@@ -88,6 +89,9 @@ function DynamicAppDetails() {
         <TabNavItem href={`/applications/${dynamicAppId}/${ApplicationDetailsTabs.Settings}`}>
           {t('application_details.settings')}
         </TabNavItem>
+        <TabNavItem href={`/applications/${dynamicAppId}/${ApplicationDetailsTabs.Permissions}`}>
+          {t('application_details.permissions.name')}
+        </TabNavItem>
       </TabNav>
       <TabWrapper
         isActive={tab === ApplicationDetailsTabs.Settings}
@@ -96,6 +100,14 @@ function DynamicAppDetails() {
         <div className={styles.container}>
           <Settings />
           {oidcConfig.data && <EndpointsAndCredentials oidcConfig={oidcConfig.data} />}
+        </div>
+      </TabWrapper>
+      <TabWrapper
+        isActive={tab === ApplicationDetailsTabs.Permissions}
+        className={styles.tabContainer}
+      >
+        <div className={styles.container}>
+          <Permissions />
         </div>
       </TabWrapper>
     </DetailsPage>
